@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(expat)
 BuildRequires:  pkgconfig(libavcodec)
 BuildRequires:  pkgconfig(libssl)
+BuildRequires:  pkgconfig(zlib)
 
 ExclusiveArch:  i686 x86_64
 
@@ -89,6 +90,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Aug 31 2019 Eric Mesa <ericsbinaryworld@gmail.com> - 1.14.3-1
+-Added zlib to buildrequires
+
 * Fri Mar 15 2019 Ed Marshall <esm@logic.net> - 1.14.3-0
 - Update to latest release.
 
