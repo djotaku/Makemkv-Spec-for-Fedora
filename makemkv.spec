@@ -9,8 +9,8 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.14.3
-Release:        1%{?dist}
+Version:        1.14.4
+Release:        0%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
 License:        Proprietary+GPLv2
@@ -90,6 +90,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Aug 31 2019 Eric Mesa <ericsbinaryworld@gmail.com> - 1.14.4
+- Updated to latest release
+
 * Sat Aug 31 2019 Eric Mesa <ericsbinaryworld@gmail.com> - 1.14.3-1
 -Added zlib to buildrequires
 
