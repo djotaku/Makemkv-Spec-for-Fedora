@@ -10,7 +10,7 @@
 
 Name:           makemkv
 Version:        1.14.3
-Release:        0%{?dist}
+Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
 License:        Proprietary+GPLv2
