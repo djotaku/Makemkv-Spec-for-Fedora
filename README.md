@@ -61,3 +61,5 @@ type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+
+Also, know that if you're doing mock for a version of Fedora different from the machine on which you're running it, you will need to manually import RPMFusion's keys for that version or it will fail on the mock -r step.
