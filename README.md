@@ -1,5 +1,5 @@
 # Makemkv-Spec-for-Fedora
-This is for the spec file to be able to great SRPMS and RPMs of Makemkv for Fedora
+This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fedora
 
 Building it requires some experience with building RPMs, but a high level summary:
 
@@ -12,6 +12,7 @@ Building it requires some experience with building RPMs, but a high level summar
   - if that works, copy the resulting .rpm from the results directory that it prints out to your current directory
   - install the .x86_64.rpm from the results directory and enjoy
 
+If you want to build for more than one Fedora version, you can name the file makemkvNN.cfg (where NN is the Fedora version and you've copied in the correct files from the corresponding fedora-N-x86_64.cfg file). Then in the command above, instead of -r makemkv, use -r makemkvNN.
     
 To help, here is the current set of RPMFusion stanzas (20190831):
 
