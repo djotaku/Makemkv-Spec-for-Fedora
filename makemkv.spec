@@ -10,7 +10,7 @@
 
 Name:           makemkv
 Version:        1.14.7
-Release:        0%{?dist}
+Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
 License:        Proprietary+GPLv2
@@ -29,6 +29,8 @@ BuildRequires:  pkgconfig(expat)
 BuildRequires:  pkgconfig(libavcodec)
 BuildRequires:  pkgconfig(libssl)
 BuildRequires:  pkgconfig(zlib)
+
+Requires:  ffmpeg-libs
 
 ExclusiveArch:  i686 x86_64
 
@@ -90,6 +92,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri Dec 27 2019 Adrian Freihofer <adrian.freihofer@gmail.com> - 1.14.7-1
+- Add run-time dependency to ffmpeg-libs
+
 * Tue Dec 10 2019 eric Mesa <ericsbinaryworld@gmail.com> - 1.14.7
 
 * Sat Oct 5 2019 Eric Mesa <ericsbinaryworld@gmail.com> - 1.14.5

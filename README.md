@@ -1,65 +1,48 @@
 # Makemkv-Spec-for-Fedora
-This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fedora
 
-Building it requires some experience with building RPMs, but a high level summary:
+This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fedora. The makemkv rpms are build with mock.
 
- - install the rpmdevtools and mock packages
- - add yourself to the "mock" group, log out, log in again
- - copy the spec file from this repo into the directory you want to work in.
- - run "spectool -g makemkv.spec" to download the makemkv bin and oss tarballs
- - as root, copy /etc/mock/fedora-N-x86_64.cfg (where N is the version of Fedora that you want to build an RPM for) to /etc/mock/makemkv.cfg and add stanzas for the RPMFusion free and non-free repositories (and their updates repos). You only have to do this step once per Fedora version that you want to target. You don't need to do it with each new verion of MakeMKV.
- - as a user in the "mock" group, run "mock -r makemkv --sources=. --spec=makemkv.spec"
-  - if that works, copy the resulting .rpm from the results directory that it prints out to your current directory
-  - install the .x86_64.rpm from the results directory and enjoy
+- Install the rpmdevtools and mock packages
+- Add yourself to the "mock" group, log out, log in again
+- Setup rpmfusion repo (acc. <https://rpmfusion.org/Configuration>)
 
-If you want to build for more than one Fedora version, you can name the file makemkvNN.cfg (where NN is the Fedora version and you've copied in the correct files from the corresponding fedora-N-x86_64.cfg file). Then in the command above, instead of -r makemkv, use -r makemkvNN.
-    
-To help, here is the current set of RPMFusion stanzas (20190831):
+  ```bash
+  sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  ```
 
-[rpmfusion-free]
-name=RPM Fusion for Fedora $releasever - Free
-#baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
-enabled=1
-metadata_expire=14d
-type=rpm-md
-gpgcheck=1
-repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+- Setup rpmfusion for mock
 
-[rpmfusion-nonfree]
-name=RPM Fusion for Fedora $releasever - Nonfree
-#baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
-enabled=1
-enabled_metadata=1
-metadata_expire=14d
-type=rpm-md
-gpgcheck=1
-repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
+  ```bash
+  sudo dnf install mock-rpmfusion-free.noarch mock-rpmfusion-nonfree.noarch
+  ```
 
-[rpmfusion-nonfree-updates]
-name=RPM Fusion for Fedora $releasever - Nonfree - Updates
-#baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
-enabled=1
-enabled_metadata=1
-type=rpm-md
-gpgcheck=1
-repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
+- Clone this repo and cd into the cloned directory
 
+  ```bash
+  git clone https://github.com/djotaku/Makemkv-Spec-for-Fedora.git
+  cd Makemkv-Spec-for-Fedora
+  ```
 
-[rpmfusion-free-updates]
-name=RPM Fusion for Fedora $releasever - Free - Updates
-#baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
-enabled=1
-enabled_metadata=1
-type=rpm-md
-gpgcheck=1
-repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+- Download the makemkv bin and oss tarballs
 
-Also, know that if you're doing mock for a version of Fedora different from the machine on which you're running it, you will need to manually import RPMFusion's keys for that version or it will fail on the mock -r step.
+  ```bash
+  spectool -g makemkv.spec
+  ```
+
+- Build the RPM packages (as a user in the "mock" group)
+
+  ```bash
+  mock -r fedora-31-x86_64-rpmfusion_nonfree --sources=. --spec=makemkv.spec
+  ```
+
+- Copy the resulting .rpm from the results directory that it prints out to your current directory
+
+  ```bash
+  cp /var/lib/mock/fedora-31-x86_64/result/makemkv-1.14.7-0.fc31.*.rpm .
+  ```
+
+- Install the .x86_64.rpm from the results directory and enjoy
+
+  ```bash
+  sudo dnf install makemkv-1.14.7-0.fc31.x86_64.rpm
+  ```
