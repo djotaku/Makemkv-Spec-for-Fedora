@@ -9,7 +9,7 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.14.7
+Version:        1.15.2
 Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
@@ -78,6 +78,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %files
 %license License.txt
 %{_bindir}/makemkv
+%{_bindir}/sdftool
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/libdriveio.so*
