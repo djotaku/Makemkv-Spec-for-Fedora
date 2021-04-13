@@ -9,8 +9,8 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.15.2
-Release:        1%{?dist}
+Version:        1.16.3
+Release:        0%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
 License:        Proprietary+GPLv2
