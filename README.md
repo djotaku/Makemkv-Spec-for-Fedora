@@ -32,7 +32,7 @@ This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fed
 - Build the RPM packages (as a user in the "mock" group)
 
   ```bash
-  mock -r fedora-31-x86_64-rpmfusion_nonfree --sources=. --spec=makemkv.spec
+  mock -r fedora-33-x86_64-rpmfusion_nonfree --sources=. --spec=makemkv.spec
   ```
 
 - Copy the resulting .rpm from the results directory that it prints out to your current directory
