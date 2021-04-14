@@ -10,7 +10,7 @@
 
 Name:           makemkv
 Version:        1.16.3
-Release:        0%{?dist}
+Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
 License:        Proprietary+GPLv2
@@ -93,6 +93,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue Apr 13 2021 Tarulia <notarealemail@gmail.com> - 1.16.3
+- Updated to latest release
+
 * Fri Dec 27 2019 Adrian Freihofer <adrian.freihofer@gmail.com> - 1.14.7-1
 - Add run-time dependency to ffmpeg-libs
 
@@ -110,7 +113,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 * Fri Mar 15 2019 Ed Marshall <esm@logic.net> - 1.14.3-0
 - Update to latest release.
 
-* Tue Dec  5 2018 Ed Marshall <esm@logic.net> - 1.14.2-0
+* Tue Dec 5 2018 Ed Marshall <esm@logic.net> - 1.14.2-0
 - Update to latest release.
 
 * Tue Nov 13 2018 Ed Marshall <esm@logic.net> - 1.14.1-0
