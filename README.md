@@ -38,11 +38,11 @@ This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fed
 - Copy the resulting .rpm from the results directory that it prints out to your current directory
 
   ```bash
-  cp /var/lib/mock/fedora-31-x86_64/result/makemkv-1.14.7-0.fc31.*.rpm .
+  cp /var/lib/mock/fedora-33-x86_64/result/makemkv-1.16.3-1.fc33.*.rpm .
   ```
 
 - Install the .x86_64.rpm from the results directory and enjoy
 
   ```bash
-  sudo dnf install makemkv-1.14.7-0.fc31.x86_64.rpm
+  sudo dnf install makemkv-1.16.3-1.fc33.x86_64.rpm
   ```
