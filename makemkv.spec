@@ -79,6 +79,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %license License.txt
 %{_bindir}/makemkv
 %{_bindir}/sdftool
+%{_bindir}/mmccextr
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/libdriveio.so*
