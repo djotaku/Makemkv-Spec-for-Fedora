@@ -1,13 +1,13 @@
-# Makemkv-Spec-for-Fedora
+# MakeMKV-Spec-for-Fedora
 
-This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fedora. The makemkv rpms are build with mock.
+This is for the spec file to be able to create SRPMs and RPMs of MakeMKV for Fedora. The MakeMKV RPMs are built with [mock](https://github.com/rpm-software-management/mock/).
 
 - Install the rpmdevtools and mock packages
 - Add yourself to the "mock" group, log out, log in again
-- Setup rpmfusion repo (acc. <https://rpmfusion.org/Configuration>)
+- Setup [RPM Fusion](https://rpmfusion.org/Configuration) repository
 
   ```bash
-  sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
   ```
 
 - Setup rpmfusion for mock
@@ -22,6 +22,35 @@ This is for the spec file to be able to create SRPMS and RPMs of Makemkv for Fed
   git clone https://github.com/djotaku/Makemkv-Spec-for-Fedora.git
   cd Makemkv-Spec-for-Fedora
   ```
+
+- Build and Install the RPM package
+
+  This will also pull the current beta key from the MakeMKV website and write it to the configuration file for registration.
+
+  ```bash
+  chmod +x update.sh
+  ./update.sh
+  ```
+
+## Updating MakeMKV
+
+For future updates of MakeMKV, run the update script (provided this repository was updated for the updated version).
+
+ ```bash
+ ./update.sh
+ ```
+
+## Updating the Beta Key
+
+In case the Key runs out before there is a new update, you can also disable building and installing the RPM to only update the key by using the `--nobuild` argument
+
+ ```bash
+ ./update.sh --nobuild
+ ```
+
+## Deprecated steps
+
+**Note:** These steps are ***not*** required anymore, as they have been integrated into the aforementioned update script. These are purely for reference in case you run into issues with the script (change version numbers accordingly).
 
 - Download the makemkv bin and oss tarballs
 
