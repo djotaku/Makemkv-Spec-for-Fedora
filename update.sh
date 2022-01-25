@@ -33,10 +33,17 @@ fi;
 if [ ! -f ~/.MakeMKV/settings.conf ]; then
 	echo "CREATE settings.conf using current beta key."
 	mkdir -p ~/.MakeMKV
-	echo "app_Key = \"$(curl https://www.makemkv.com/buy/ | grep \<code\> | sed -e "s/<code>//; s/<\/code>//")\"" > ~/.MakeMKV/settings.conf
+	echo "app_Key = \"$(curl "https://forum.makemkv.com/forum/viewtopic.php?f=5&t=1053" \
+	| grep \<code\> \
+	| sed -e "s/.*<code>//; s/<\/code>.*//")\"" \
+	> ~/.MakeMKV/settings.conf
+
 else
 	echo "UPDATE settings.conf using current beta key."
-	sed -i "s/^app_Key.*/app_Key = \"$(curl https://www.makemkv.com/buy/ | grep \<code\> | sed -e "s/<code>//; s/<\/code>//")\"/" ~/.MakeMKV/settings.conf
+	sed -i "s/^app_Key.*/app_Key = \"$(curl "https://forum.makemkv.com/forum/viewtopic.php?f=5&t=1053" \
+	| grep \<code\> \
+	| sed -e "s/.*<code>//; s/<\/code>.*//")\"/" \
+	~/.MakeMKV/settings.conf
 fi;
 
 echo "All done!"
