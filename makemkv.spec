@@ -9,7 +9,7 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.16.3
+Version:        1.16.5
 Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
@@ -94,7 +94,10 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
-* Tue Apr 13 2021 Tarulia <notarealemail@gmail.com> - 1.16.3
+* Tue Jan 25 2022 Tarulia <mihawk.90+git@googlemail.com> - 1.16.5-1
+- Updated to latest release
+
+* Tue Apr 13 2021 Tarulia <mihawk.90+git@googlemail.com> - 1.16.3-1
 - Updated to latest release
 
 * Fri Dec 27 2019 Adrian Freihofer <adrian.freihofer@gmail.com> - 1.14.7-1
