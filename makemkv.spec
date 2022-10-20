@@ -9,7 +9,7 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.16.7
+Version:        1.17.2
 Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
@@ -59,7 +59,6 @@ sed -i -E \
   Makefile
 %setup -q -T -D -b 1 -n %{name}-oss-%{version}
 
-
 %build
 %configure --enable-debug --enable-allcodecs
 %make_build
@@ -80,6 +79,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %{_bindir}/makemkv
 %{_bindir}/sdftool
 %{_bindir}/mmccextr
+%{_bindir}/mmgplsrv
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/libdriveio.so*
@@ -94,6 +94,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Thu Oct 20 2022 Joke de Buhr <joke@xckk.de> - 1.17.2-1
+- Updated to latest release
+
 * Mon Mar 21 2022 Tarulia <mihawk.90+git@googlemail.com> - 1.16.7-1
 - Updated to latest release
 
