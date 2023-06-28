@@ -9,7 +9,7 @@
 %global __requires_exclude ^lib(%{_privatelibs})\\.so.*
 
 Name:           makemkv
-Version:        1.17.2
+Version:        1.17.4
 Release:        1%{?dist}
 Summary:        A format converter ("transcoder") for proprietary media
 
@@ -58,6 +58,9 @@ sed -i -E \
   -e 's/install: tmp\/eula_accepted/install: /' \
   Makefile
 %setup -q -T -D -b 1 -n %{name}-oss-%{version}
+sed -i -E \
+  -e 's/av_mallocz_array/av_calloc/g' \
+  libffabi/src/ffabi.c
 
 %build
 %configure --enable-debug --enable-allcodecs
