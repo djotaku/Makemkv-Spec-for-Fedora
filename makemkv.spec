@@ -97,6 +97,10 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue Jun 27 2023 Renaud Lepage <root@cybik.moe> - 1.17.4-1
+- Updated to latest release
+- Auto-apply fix for Fedora until upstream changes
+
 * Thu Oct 20 2022 Joke de Buhr <joke@xckk.de> - 1.17.2-1
 - Updated to latest release
 
